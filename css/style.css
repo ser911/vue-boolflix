@@ -1,0 +1,58 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header{
+  background-color: #252525;
+  height: 80px;
+}
+header .logo {
+  color: #E50914;
+  font-size: 22px;
+  padding: 20px;
+}
+
+main{
+  background-color: #393e46;
+  height: calc(100vh - 80px);
+}
+main .user-interaction {
+  padding: 20px 0 0 20px;
+}
+.user-interaction input:focus{
+  outline: none!important;
+}
+.main-panel{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+.main-panel .movies{
+  height: 300px;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+.main-panel img{
+  height: 100%;
+}
+.movies{
+  position: relative;
+  border: 1px solid black;
+
+}
+.movies .overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+.movies:hover img{
+opacity: 0;
+}
+.movies:hover .overlay{
+  opacity: 0.9;
+  z-index: 10;
+}
