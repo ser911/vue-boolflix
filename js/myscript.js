@@ -39,21 +39,6 @@ console.log(this.tempMovieArray);
 
 
 )
-axios.get("https://api.themoviedb.org/3/search",
-{
-params: {
-  api_key: this.apiKey,
-  query: this.search
-}
-
-}).then((result) =>{
-  this.languages = result.data.results.original_language;
-console.log(this.languages);
-}
-
-
-
-)
 
 
   }

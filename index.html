@@ -22,29 +22,28 @@
     </div>
     <div class="main-panel">
       <div class="movies" v-for="movie in tempMovieArray">
-      <img v-bind:src="'https://image.tmdb.org/t/p/w300'  + movie.poster_path" alt="">
+      <img class="poster" v-bind:src="'https://image.tmdb.org/t/p/w300'  + movie.poster_path" alt="">
        <div class="overlay">
          <div class="">
            <i class="fas fa-film"></i> {{movie.title}}
          </div>
-         <div class="">
-           <i class="fas fa-font"></i> {{movie.original_title}}
-         </div>
-         <div class="">
-           <i class="fas fa-film"></i>
-         </div>
+           <div class="">
+             <span>Language: </span>
+        <img class="lang" v-if="movie.original_language == 'en'" src="img/uk.png" alt="">
 
+         </div>
+         <div class="">
+           {{movie.overview}}
+         </div>
          <div class="">
            <i class="fas fa-film"></i> {{movie.vote_average}}
-         </div>
-         <div class="">
-           <i class="fas fa-film"></i> {{movie.overview}}
          </div>
 
 
        </div>
       </div>
     </div>
+
   </main>
   <script src="js/myscript.js" charset="utf-8"></script>
 </body>
