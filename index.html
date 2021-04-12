@@ -16,15 +16,31 @@
   </header>
   <main id="app">
     <div class="user-interaction">
-      <input type="text" name="" value="">
+      <input type="text" name="" value="" v-model="search">
       <button type="button" name="button" v-on:click="moviesearch"><i class="fas fa-search"></i></button>
 
     </div>
     <div class="main-panel">
-      <div class="movies">
-        <img src="https://image.tmdb.org/t/p/w400/1J1e8Uslw8MAE7mIVFh6TU9mPt8.jpg" alt="">
+      <div class="movies" v-for="movie in tempMovieArray">
+      <img v-bind:src="'https://image.tmdb.org/t/p/w300'  + movie.poster_path" alt="">
        <div class="overlay">
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         <div class="">
+           <i class="fas fa-film"></i> {{movie.title}}
+         </div>
+         <div class="">
+           <i class="fas fa-font"></i> {{movie.original_title}}
+         </div>
+         <div class="">
+           <i class="fas fa-film"></i>
+         </div>
+
+         <div class="">
+           <i class="fas fa-film"></i> {{movie.vote_average}}
+         </div>
+         <div class="">
+           <i class="fas fa-film"></i> {{movie.overview}}
+         </div>
+
 
        </div>
       </div>
