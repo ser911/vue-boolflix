@@ -7,21 +7,33 @@ body{
 font-family: 'Roboto', sans-serif;
 }
 .top-main{
-  background-color: #393e46;
+  background-color: #000;
   height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
 }
+
 .top-main .logo {
   color: #E50914;
   font-size: 22px;
-  padding: 20px;
+
 }
 
 main{
     background-color: #252525;
-  min-height: 100vh;
+    min-height: 100vh;
+    padding-bottom: 25px;
 }
-main .user-interaction {
-  padding: 20px 0 0 20px;
+.user-interaction button {
+background-color: #E50914;
+border: none;
+padding: 2px;
+border-radius: 2px;
+}
+.user-interaction input{
+  border: none;
 }
 .user-interaction input:focus{
   outline: none!important;
@@ -79,6 +91,10 @@ flex-wrap: wrap;
   transition: opacity 2s;
 }
 .info, .overview, .vote, .lang {
+  color: #f7f4e3;
+
+}
+.no-overview{
   color: #f7f4e3;
 
 }

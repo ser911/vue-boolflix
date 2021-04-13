@@ -7,7 +7,7 @@ tempMovieArray: [],
 tempTvArray: [],
 moviesAndTV: [],
 apiKey: "8b919efbe3d00d2c300a4f551dda0d42",
-languages: [],
+languages: ["en","it","es","fr"],
 votes: []
 },
 methods: {
@@ -37,7 +37,7 @@ params: {
 }).then((result) =>{
   this.tempTvArray = result.data.results;
 
-this.moviesAndTV = this.moviesAndTV.concat(this.tempMovieArray)
+this.moviesAndTV = this.moviesAndTV.concat(this.tempTvArray)
 console.log(this.moviesAndTV);
 }
 
