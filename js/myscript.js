@@ -20,11 +20,12 @@ moviesearch: function(){
     }
   }).then((result) =>{
   this.tempMovieArray = result.data.results;
+  this.moviesAndTV = this.moviesAndTV.concat(this.tempMovieArray)
 console.log(this.tempMovieArray);
 
   }
 )
-
+this.moviesAndTV = [];
 axios.get("https://api.themoviedb.org/3/search/tv",
 {
 params: {
@@ -35,7 +36,9 @@ params: {
 
 }).then((result) =>{
   this.tempTvArray = result.data.results;
-this.moviesAndTV = this.tempMovieArray.concat(this.tempTvArray)
+
+this.moviesAndTV = this.moviesAndTV.concat(this.tempMovieArray)
+console.log(this.moviesAndTV);
 }
 
 
