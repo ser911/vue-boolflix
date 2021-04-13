@@ -12,6 +12,9 @@ votes: []
 },
 methods: {
 moviesearch: function(){
+  if (this.search !== "") {
+
+
   axios.get("https://api.themoviedb.org/3/search/movie", {
 
     params: {
@@ -45,17 +48,15 @@ console.log(this.moviesAndTV);
 
 )
 
-function stars(){
 
-for ( result.data.results.vote_average in result.data.results  ) {
-result.data.results.vote_average = Math.ceil(result.data.results.vote_average) / 2;
-}
 
-}
+
+
+
 
 
   }
-
+  }
 
 
 }

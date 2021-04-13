@@ -29,26 +29,32 @@
       <img class="poster" v-bind:src="( item.poster_path ? 'https://image.tmdb.org/t/p/w300'  + item.poster_path : 'img/404.jpg' )" alt="item.title">
        <div class="overlay">
          <div class="info">
-           <i class="fas fa-film"></i> {{item.title}}
+           <i v-if="item.title" class="fas fa-film"></i> <i v-else class="fas fa-tv"></i> <h4>{{item.title}}{{item.name}}</h4>
+
          </div>
+         <!-- <div v-if="item.name" class="info">
+         <i class="fas fa-tv"></i>
+         </div> -->
            <div class="lang">
-             <span class="">Original Language: </span>
+
 
              <img class="flag" v-if="item.original_language =='en'" src="img/uk.png" alt="">
              <img class="flag" v-else-if="item.original_language =='it'" src="img/ita.png" alt="">
             <img class="flag" v-else-if="item.original_language =='es'" src="img/esp.png" alt="">
             <img class="flag" v-else-if="item.original_language =='fr'" src="img/fra.png" alt="">
-       <i v-else class="far fa-flag"></i>
+            <img class="flag" v-else-if="item.original_language =='ja'" src="img/jap.png" alt="">
+
+       <!-- <i v-else class="far fa-flag"></i> -->
 
          </div>
-         <div v-if="item.overview.length > 5" class="overview">
-           {{item.overview}}
+         <div class="overview">
+           <p>{{item.overview}}</p>
          </div>
-         <div v-else class="no-overview">
-           {{item.title}}
-         </div>
+         <!-- <div v-else class="no-overview">
+           <h3>{{item.title}}</h3>
+         </div> -->
          <div class="vote">
-           {{item.vote_average}}
+           <span>{{item.vote_average}}</span>
          </div>
 
 
