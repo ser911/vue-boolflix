@@ -5,6 +5,7 @@ data:{
 search: "",
 tempMovieArray: [],
 tempTvArray: [],
+moviesAndTV: [],
 apiKey: "8b919efbe3d00d2c300a4f551dda0d42",
 languages: [],
 votes: []
@@ -33,8 +34,8 @@ params: {
 
 
 }).then((result) =>{
-  this.tempMovieArray = result.data.results;
-console.log(this.tempMovieArray);
+  this.tempTvArray = result.data.results;
+this.moviesAndTV = this.tempMovieArray.concat(this.tempTvArray)
 }
 
 

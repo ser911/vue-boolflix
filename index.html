@@ -23,25 +23,25 @@
 
     </div>
     <div class="main-panel">
-      <div class="movies" v-for="movie in tempMovieArray">
-      <img class="poster" v-bind:src="'https://image.tmdb.org/t/p/w300'  + movie.poster_path" alt="">
+      <div class="movies" v-for="item in moviesAndTV">
+      <img class="poster" v-bind:src="'https://image.tmdb.org/t/p/w300'  + item.poster_path" alt="">
        <div class="overlay">
          <div class="info">
-           <i class="fas fa-film"></i> {{movie.title}}
+           <i class="fas fa-film"></i> {{item.title}}
          </div>
            <div class="lang">
              <span class="">Original Language: </span>
-        <img class="flag" v-if="movie.original_language == 'en'" src="img/uk.png" alt="">
-       <img class="flag" v-if="movie.original_language =='it'" src="img/ita.png" alt="">
-       <img class="flag" v-if="movie.original_language =='es'" src="img/esp.png" alt="">
-       <img class="flag" v-if="movie.original_language =='fr'" src="img/fra.png" alt="">
+        <img class="flag" v-if="item.original_language == 'en'" src="img/uk.png" alt="">
+       <img class="flag" v-if="item.original_language =='it'" src="img/ita.png" alt="">
+       <img class="flag" v-if="item.original_language =='es'" src="img/esp.png" alt="">
+       <img class="flag" v-if="item.original_language =='fr'" src="img/fra.png" alt="">
 
          </div>
          <div class="overview">
-           {{movie.overview}}
+           {{item.overview}}
          </div>
          <div class="vote">
-           {{movie.vote_average}}
+           {{item.vote_average}}
          </div>
 
 
