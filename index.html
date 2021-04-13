@@ -54,7 +54,51 @@
            <h3>{{item.title}}</h3>
          </div> -->
          <div class="vote">
-           <span>{{item.vote_average}}</span>
+           <span v-if="item.vote_average < 1">
+              <i class="far fa-star"></i>
+               <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                 <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+
+
+           </span>
+           <span v-else-if="item.vote_average == 1">
+             <i class="fas fa-star"></i>
+             <i class="far fa-star"></i>
+             <i class="far fa-star"></i>
+             <i class="far fa-star"></i>
+             <i class="far fa-star"></i>
+           </span>
+           <span v-else-if="item.vote_average == 2">
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="far fa-star"></i>
+             <i class="far fa-star"></i>
+             <i class="far fa-star"></i>
+           </span>
+           <span v-else-if="item.vote_average == 3">
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="far fa-star"></i>
+             <i class="far fa-star"></i>
+           </span>
+           <span v-else-if="item.vote_average == 4">
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="far fa-star"></i>
+           </span>
+           <span v-else-if="item.vote_average == 5">
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+           </span>
+           <!-- <span v-else-if ="item.vote_average =="></span> -->
          </div>
 
 

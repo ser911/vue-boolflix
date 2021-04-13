@@ -8,7 +8,7 @@ tempTvArray: [],
 moviesAndTV: [],
 apiKey: "8b919efbe3d00d2c300a4f551dda0d42",
 languages: ["en","it","es","fr"],
-votes: []
+
 },
 methods: {
 moviesearch: function(){
@@ -42,6 +42,11 @@ params: {
 
 this.moviesAndTV = this.moviesAndTV.concat(this.tempTvArray)
 console.log(this.moviesAndTV);
+for (var i = 0; i < this.moviesAndTV.length; i++) {
+  this.moviesAndTV[i].vote_average = this.moviesAndTV[i].vote_average / 2;
+  this.moviesAndTV[i].vote_average = this.moviesAndTV[i].vote_average.toFixed();
+}
+
 }
 
 
