@@ -6,7 +6,8 @@ search: "",
 tempMovieArray: [],
 tempTvArray: [],
 apiKey: "8b919efbe3d00d2c300a4f551dda0d42",
-languages: []
+languages: [],
+votes: []
 },
 methods: {
 moviesearch: function(){
@@ -39,6 +40,14 @@ console.log(this.tempMovieArray);
 
 
 )
+
+function stars(){
+
+for ( result.data.results.vote_average in result.data.results  ) {
+result.data.results.vote_average = Math.ceil(result.data.results.vote_average) / 2;
+}
+
+}
 
 
   }

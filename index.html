@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" charset="utf-8"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/style.css">
   <title>Boolflix</title>
@@ -16,7 +18,7 @@
   </header>
   <main id="app">
     <div class="user-interaction">
-      <input type="text" name="" value="" v-model="search">
+      <input type="text" name="" value="" v-model="search" v-on:keyup.enter = "moviesearch">
       <button type="button" name="button" v-on:click="moviesearch"><i class="fas fa-search"></i></button>
 
     </div>
@@ -24,19 +26,22 @@
       <div class="movies" v-for="movie in tempMovieArray">
       <img class="poster" v-bind:src="'https://image.tmdb.org/t/p/w300'  + movie.poster_path" alt="">
        <div class="overlay">
-         <div class="">
+         <div class="info">
            <i class="fas fa-film"></i> {{movie.title}}
          </div>
-           <div class="">
-             <span>Language: </span>
-        <img class="lang" v-if="movie.original_language == 'en'" src="img/uk.png" alt="">
+           <div class="lang">
+             <span class="">Original Language: </span>
+        <img class="flag" v-if="movie.original_language == 'en'" src="img/uk.png" alt="">
+       <img class="flag" v-if="movie.original_language =='it'" src="img/ita.png" alt="">
+       <img class="flag" v-if="movie.original_language =='es'" src="img/esp.png" alt="">
+       <img class="flag" v-if="movie.original_language =='fr'" src="img/fra.png" alt="">
 
          </div>
-         <div class="">
+         <div class="overview">
            {{movie.overview}}
          </div>
-         <div class="">
-           <i class="fas fa-film"></i> {{movie.vote_average}}
+         <div class="vote">
+           {{movie.vote_average}}
          </div>
 
 

@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+font-family: 'Roboto', sans-serif;
+}
 header{
   background-color: #252525;
   height: 80px;
@@ -42,12 +45,19 @@ flex-wrap: wrap;
   border: 1px solid black;
   height: 300px;
   width: 200px;
+  box-shadow: 1px 2px 4px #000;
+  border-radius: 5px;
+  overflow: hidden;  
 
 }
 .movies .poster {
   height: 100%;
 }
-.movies .lang{
+.info, .lang, .overview, .vote {
+  padding: 10px;
+}
+
+.movies .flag{
   height: 15px;
 }
 .movies .overlay{
@@ -57,10 +67,10 @@ flex-wrap: wrap;
   height: 100%;
   width: 100%;
   opacity: 0;
+  overflow-y: auto;
+  transition: opacity 1.5s;
 }
-.movies .overview {
-  overflow-y: scroll;
-}
+
 .movies:hover .poster{
 opacity: 0;
 }
