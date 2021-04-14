@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,105 +9,120 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/style.css">
   <title>Boolflix</title>
 </head>
+
 <body>
   <main id="app">
 
     <div class="top-main">
-      <div class="logo"> <h3>BOOLFLIX</h3> </div>
+      <div class="logo">
+        <img src="img/boolflix.png" alt="">
+      </div>
       <div class="user-interaction">
-        <input type="text" name="" value="" v-model="search" v-on:keyup.enter = "moviesearch">
+        <div class="mini-logo"><img src="img/logo_B_.png" alt=""> </div>
+        <input type="text" name="" value="" placeholder="Search..." v-model="search" v-on:keyup.enter="moviesearch">
         <button type="button" name="button" v-on:click="moviesearch"><i class="fas fa-search"></i></button>
 
       </div>
     </div>
 
     <div class="main-panel">
+      <h1 v-if="message">Search your show...</h1>
       <div class="movies" v-for="item in moviesAndTV">
-      <img class="poster" v-bind:src="( item.poster_path ? 'https://image.tmdb.org/t/p/w300'  + item.poster_path : 'img/404.jpg' )" alt="item.title">
-       <div class="overlay">
-         <div class="info">
-           <i v-if="item.title" class="fas fa-film"></i> <i v-else class="fas fa-tv"></i> <h4>{{item.title}}{{item.name}}</h4>
+        <img class="poster" v-bind:src="( item.poster_path ? 'https://image.tmdb.org/t/p/w300'  + item.poster_path : 'img/404.jpg' )" alt="item.title">
+        <div class="overlay">
+          <div class="info">
+            <i v-if="item.title" class="fas fa-film"></i> <i v-else class="fas fa-tv"></i>
+            <h4>{{item.title}}{{item.name}}</h4>
+<!-- <div class="year">
+  <p>{{item.release_date}}</p>
+</div> -->
+          </div>
 
-         </div>
-         <!-- <div v-if="item.name" class="info">
-         <i class="fas fa-tv"></i>
-         </div> -->
-           <div class="lang">
+          <div class="lang">
 
 
-             <img class="flag" v-if="item.original_language =='en'" src="img/uk.png" alt="">
-             <img class="flag" v-else-if="item.original_language =='it'" src="img/ita.png" alt="">
+            <img class="flag" v-if="item.original_language =='en'" src="img/uk.png" alt="">
+            <img class="flag" v-else-if="item.original_language =='it'" src="img/ita.png" alt="">
             <img class="flag" v-else-if="item.original_language =='es'" src="img/esp.png" alt="">
             <img class="flag" v-else-if="item.original_language =='fr'" src="img/fra.png" alt="">
             <img class="flag" v-else-if="item.original_language =='ja'" src="img/jap.png" alt="">
+            <img class="flag" v-else-if="item.original_language =='pt'" src="img/ptg.png" alt="">
+            <img class="flag" v-else-if="item.original_language =='de'" src="img/deu.png" alt="">
 
-       <!-- <i v-else class="far fa-flag"></i> -->
 
-         </div>
-         <div class="overview">
-           <p>{{item.overview}}</p>
-         </div>
-         <!-- <div v-else class="no-overview">
-           <h3>{{item.title}}</h3>
-         </div> -->
-         <div class="vote">
-           <span v-if="item.vote_average < 1">
+<i v-else class="far fa-flag"></i>
+            <!-- <i v-else class="far fa-flag"></i> -->
+
+          </div>
+          <div v-if="item.overview !== ''" class="overview">
+            <p>{{item.overview}}</p>
+          </div>
+          <div v-else class="no-content"></p>
+           </div>
+
+          <div class="vote">
+            <span v-if="item.vote_average < 1">
               <i class="far fa-star"></i>
-               <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                 <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
 
 
-           </span>
-           <span v-else-if="item.vote_average == 1">
-             <i class="fas fa-star"></i>
-             <i class="far fa-star"></i>
-             <i class="far fa-star"></i>
-             <i class="far fa-star"></i>
-             <i class="far fa-star"></i>
-           </span>
-           <span v-else-if="item.vote_average == 2">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="far fa-star"></i>
-             <i class="far fa-star"></i>
-             <i class="far fa-star"></i>
-           </span>
-           <span v-else-if="item.vote_average == 3">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="far fa-star"></i>
-             <i class="far fa-star"></i>
-           </span>
-           <span v-else-if="item.vote_average == 4">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="far fa-star"></i>
-           </span>
-           <span v-else-if="item.vote_average == 5">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-           </span>
-           <!-- <span v-else-if ="item.vote_average =="></span> -->
-         </div>
+            </span>
+            <span v-else-if="item.vote_average == 1">
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+
+            <span v-else-if="item.vote_average == 2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+
+            <span v-else-if="item.vote_average == 3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+
+            <span v-else-if="item.vote_average == 4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+
+            <span v-else-if="item.vote_average == 5">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+            <!-- <span v-else-if ="item.vote_average =="></span> -->
+          </div>
 
 
-       </div>
+        </div>
       </div>
     </div>
 
   </main>
   <script src="js/myscript.js" charset="utf-8"></script>
 </body>
+
 </html>

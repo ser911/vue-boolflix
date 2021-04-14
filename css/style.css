@@ -1,12 +1,14 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
-font-family: 'Roboto', sans-serif;
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
-.top-main{
+
+.top-main {
   background-color: #000;
   height: 80px;
   display: flex;
@@ -15,44 +17,67 @@ font-family: 'Roboto', sans-serif;
   padding: 0 30px;
 }
 
-.top-main .logo {
-  color: #E50914;
-  font-size: 22px;
+.top-main .logo img {
+  height: 40px;
+}
+.top-main .mini-logo{
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.top-main .mini-logo img {
+  height: 40px;
 
 }
 
-main{
-    background-color: #252525;
-    min-height: 100vh;
-    padding-bottom: 25px;
+
+main {
+  background-color: #252525;
+  min-height: 100vh;
+  padding-bottom: 25px;
 }
+
 .user-interaction button {
-background-color: #E50914;
-border: none;
-padding: 2px;
-border-radius: 2px;
-}
-.user-interaction input{
+  background-color: #E50914;
   border: none;
-}
-.user-interaction input:focus{
-  outline: none!important;
-}
-.main-panel{
-display: flex;
-flex-wrap: wrap;
+  padding: 3px;
+  border-radius: 2px;
 
 }
-.main-panel .movies{
+
+.user-interaction input {
+  border: none;
+  padding: 3px 0 3px 3px;
+  border-radius: 2px;
+
+}
+
+.user-interaction input:focus {
+  outline: none !important;
+}
+
+.main-panel {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-panel h1 {
+  color: #FDE0D3;
+  padding: 30px 0 0 30px;
+}
+
+.main-panel .movies {
   height: 300px;
   margin-left: 100px;
   margin-top: 100px;
 }
-.main-panel .poster{
+
+.main-panel .poster {
   height: 100%;
   width: 100%;
 }
-.movies{
+
+.movies {
   position: relative;
   border: 1px solid black;
   height: 300px;
@@ -61,10 +86,9 @@ flex-wrap: wrap;
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
-
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 3px;
   background-color: #E50914;
   border-radius: 10px;
@@ -73,21 +97,28 @@ flex-wrap: wrap;
 .movies .poster {
   height: 100%;
 }
+
 .info, .lang, .overview, .vote {
   padding: 10px;
 }
-.info h4{
+.flag{
+  height: 32px;
+}
+
+.info h4 {
   display: inline-block;
   padding-top: 5px;
 }
-.info i{
+
+.info i {
   display: block;
 }
 
-.movies .flag{
+.movies .flag {
   height: 15px;
 }
-.movies .overlay{
+
+.movies .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -95,20 +126,23 @@ flex-wrap: wrap;
   width: 100%;
   opacity: 0;
   overflow-y: auto;
-  transition: opacity 2s;
+  transition: opacity 2.2s;
 }
+
 .info, .overview, .vote, .lang {
   color: #f7f4e3;
-
 }
-.no-overview{
+
+.no-content {
   color: #f7f4e3;
+  padding-bottom: 80%;
+}
 
+.movies:hover .poster {
+  opacity: 0.4;
 }
-.movies:hover .poster{
-opacity: 0;
-}
-.movies:hover .overlay{
-  opacity: 0.9;
+
+.movies:hover .overlay {
+  opacity: 0.7;
   z-index: 10;
 }
